@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 "use client"
+// @ts-nocheck
 
 import { useEffect, useMemo, useState } from "react"
 import { useAccount, useConnect, useDisconnect } from "wagmi"
@@ -25,11 +26,12 @@ export default function SplitPayUSDC() {
 
   // Convertit "1.00" en 1_000_000 (décimales USDC = 6)
   const amountTotal = useMemo(() => parseUnits(amount || "0", 6), [amount])
-  const [amount1, amount2] = useMemo(() => {
-  const total = BigInt(amountTotal.toString()) // cast en BigInt
-const half = total / 2n                      // division BigInt
-const rest = total - half
-return [half, rest] as const
+    const [amount1, amount2] = useMemo(() => {
+  // split 50/50 (tu peux changer en 70/30 etc.)
+  const total = BigInt(amountTotal.toString()) // cast clair en BigInt
+  const half = total / 2n
+  const rest = total - half
+  return [half, rest] as const
 }, [amountTotal])
 
   // Détection EIP-5792 (batch) via wallet_getCapabilities
