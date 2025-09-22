@@ -90,10 +90,15 @@ export default function SplitPayUSDC() {
         params: [{ to: USDC_BASE, data: data2 }],
       })
       setStatus(`OK (2 tx). tx1=${tx1} tx2=${tx2}`)
-    } catch (e: any) {
-      setStatus(`Erreur: ${e?.message || String(e)}`)
-      console.error(e)
-    }
+    } catch (e: unknown) {
+  if (e instanceof Error) {
+    setStatus(`Erreur: ${e.message}`)
+  } else {
+    setStatus(`Erreur inconnue: ${String(e)}`)
+  }
+  console.error(e)
+}
+
   }
 
   return (
