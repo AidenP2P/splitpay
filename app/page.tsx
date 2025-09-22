@@ -26,10 +26,10 @@ export default function SplitPayUSDC() {
   // Convertit "1.00" en 1_000_000 (décimales USDC = 6)
   const amountTotal = useMemo(() => parseUnits(amount || "0", 6), [amount])
   const [amount1, amount2] = useMemo(() => {
-  const total = Number(amountTotal) // cast en number
-  const half = total / 2
-  const rest = total - half
-  return [half, rest] as const
+  const total = BigInt(amountTotal.toString()) // cast en BigInt
+const half = total / 2n                      // division BigInt
+const rest = total - half
+return [half, rest] as const
 }, [amountTotal])
 
   // Détection EIP-5792 (batch) via wallet_getCapabilities
