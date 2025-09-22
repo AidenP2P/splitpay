@@ -27,7 +27,7 @@ export default function SplitPayUSDC() {
   const amountTotal = useMemo(() => parseUnits(amount || "0", 6), [amount])
   const [amount1, amount2] = useMemo(() => {
     // split 50/50 (tu peux changer en 70/30 etc.)
-    const half = amountTotal / 2n
+    const half = amountTotal / 2
     const rest = amountTotal - half
     return [half, rest] as const
   }, [amountTotal])
