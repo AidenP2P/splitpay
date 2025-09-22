@@ -4,7 +4,6 @@
 
 import { useEffect, useMemo, useState } from "react"
 import { useAccount, useConnect, useDisconnect } from "wagmi"
-import { injected } from "wagmi/connectors"
 import { parseUnits, encodeFunctionData, erc20Abi } from "viem"
 
 // === USDC (Base mainnet) ===
