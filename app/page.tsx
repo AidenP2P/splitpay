@@ -16,7 +16,7 @@ const TO2 = "0x0136BFaff6a3bcFc9BF40E72D7251b9fC07fbcC5"
 
 export default function SplitPayUSDC() {
   const { address, isConnected } = useAccount()
-  const { connect } = useConnect({ connector: injected() })
+  const { connect } = useConnect()
   const { disconnect } = useDisconnect()
 
   // Montant TOTAL à répartir (ex. 1.00 USDC -> 0.50 + 0.50)
