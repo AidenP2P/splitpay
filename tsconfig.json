@@ -2,6 +2,8 @@
   "compilerOptions": {
     "target": "ES2020",             // ou ES2021+
     "lib": ["dom", "es2020"],       // ajoute "es2020"
+    "target": "ES2020",
+    "lib": ["dom", "es2020"],
     "module": "esnext",
     "strict": true,
     "jsx": "preserve",
