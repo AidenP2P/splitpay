@@ -1,27 +1,13 @@
 import type { Metadata } from "next";
 import { Inter, Source_Code_Pro } from "next/font/google";
 import { SafeArea } from "@coinbase/onchainkit/minikit";
-import { minikitConfig } from "@/minikit.config";
 import { RootProvider } from "./rootProvider";
 import "./globals.css";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: minikitConfig.frame.name,
-    description: minikitConfig.frame.description,
-    other: {
-      "fc:frame": JSON.stringify({
-        version: minikitConfig.frame.version,
-        imageUrl: minikitConfig.frame.heroImageUrl,
-        button: {
-          title: `Launch ${minikitConfig.frame.name}`,
-          action: {
-            name: `Launch ${minikitConfig.frame.name}`,
-            type: "launch_frame",
-          },
-        },
-      }),
-    },
+    title: "SplitPay Mini",
+    description: "Mini app de test pour SplitPay sur Base",
   };
 }
 
