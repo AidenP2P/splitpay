@@ -27,7 +27,6 @@ export default function SplitPayUSDC() {
   // Convertit "1.00" en 1_000_000 (décimales USDC = 6)
   const amountTotal = useMemo(() => parseUnits(amount || "0", 6), [amount])
     const [amount1, amount2] = useMemo(() => {
-  // split 50/50 (tu peux changer en 70/30 etc.)
   const total = BigInt(amountTotal.toString()) // cast clair en BigInt
   const half = total / 2n
   const rest = total - half
