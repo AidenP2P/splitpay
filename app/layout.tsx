@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Source_Code_Pro } from "next/font/google";
-import { SafeArea } from "@coinbase/onchainkit/minikit";
+//import { SafeArea } from "@coinbase/onchainkit/minikit";
 import { RootProvider } from "./rootProvider";
 import "./globals.css";
 
